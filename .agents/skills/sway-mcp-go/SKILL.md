@@ -1,0 +1,24 @@
+---
+name: sway-mcp-go
+description: "Core build, test, release, and maintenance workflow for the sway-mcp-go repo."
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Grep
+  - Glob
+---
+
+# sway-mcp-go Ops
+
+Use this skill for the default repo workflow in sway-mcp-go.
+
+## Default loop
+
+1. Read AGENTS.md and confirm the repo-specific build and test commands.
+2. Inspect the relevant code or docs before editing.
+3. Make focused changes that preserve existing conventions.
+4. Run the narrowest useful verification first, then the broader repo checks before finishing.
+5. Summarize outcome, verification, and any remaining risks.
+
+Read files under .agents/skills/sway-mcp-go/references/ if this repo later grows domain-specific workflows.
