@@ -14,11 +14,17 @@ Use this file as the canonical multi-provider instruction surface for this repo.
 - `go build ./cmd/sway-mcp`
 - `go test ./... -count=1`
 - `go vet ./...`
+- `bash ./scripts/run-sway-mcp.sh`
 
 ## Architecture
 
-- `cmd/sway-mcp` boots the stdio MCP server and registers the Sway module.
+- `cmd/sway-mcp` boots the stdio MCP server plus the discovery/resources/prompts
+  contract surface.
 - `internal/sway/sway.go` exposes the desktop automation surface.
+- `internal/sway/contract.go` defines the discovery tools, resources, prompts,
+  and server health surface.
+- `scripts/run-sway-mcp.sh` is the portable repo-local launcher referenced by
+  `.mcp.json`.
 - Runtime behavior depends on Sway/Wayland tools such as `swaymsg`, `grim`,
   `wl-copy`, `wl-paste`, `ydotool`, and `magick`.
 

@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "name": "sway_desktop_review",
+      "from": "sway-mcp-go",
+      "mode": "review",
+      "comment": "Read-first Sway profile for desktop inspection and discovery.",
+      "read_only": true,
+      "enabled_tools": [
+        "sway_tool_catalog",
+        "sway_tool_search",
+        "sway_tool_schema",
+        "sway_tool_stats",
+        "sway_server_health",
+        "sway_list_windows",
+        "sway_get_outputs",
+        "sway_screenshot",
+        "sway_screenshot_region",
+        "sway_clipboard_read"
+      ]
+    },
+    {
+      "name": "sway_desktop_workspace",
+      "from": "sway-mcp-go",
+      "mode": "workspace",
+      "comment": "Curated Sway desktop workspace profile with discovery and mutation tools.",
+      "enabled_tools": [
+        "sway_tool_catalog",
+        "sway_tool_search",
+        "sway_tool_schema",
+        "sway_tool_stats",
+        "sway_server_health",
+        "sway_screenshot",
+        "sway_screenshot_region",
+        "sway_list_windows",
+        "sway_focus_window",
+        "sway_move_window",
+        "sway_click",
+        "sway_type_text",
+        "sway_key",
+        "sway_scroll",
+        "sway_clipboard_read",
+        "sway_clipboard_write",
+        "sway_get_outputs"
+      ]
+    }
+  ]
+}

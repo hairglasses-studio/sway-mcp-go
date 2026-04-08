@@ -2,23 +2,45 @@ package main
 
 import (
 	"log"
-	"os"
 
+	"github.com/hairglasses-studio/mcpkit/prompts"
 	"github.com/hairglasses-studio/mcpkit/registry"
+	"github.com/hairglasses-studio/mcpkit/resources"
 	"github.com/hairglasses-studio/sway-mcp-go/internal/sway"
+	"github.com/mark3labs/mcp-go/server"
 )
 
 func main() {
-	if os.Getenv("WAYLAND_DISPLAY") == "" {
-		log.Fatal("WAYLAND_DISPLAY not set — not running under Wayland")
-	}
+	const version = "0.2.0"
 
-	s := registry.NewMCPServer("sway-mcp", "0.2.0")
-	
-	module := &sway.Module{}
-	for _, td := range module.Tools() {
-		registry.AddToolToServer(s, td.Tool, td.Handler)
-	}
+	toolReg := registry.NewToolRegistry()
+	resReg := resources.NewResourceRegistry()
+	promptReg := prompts.NewPromptRegistry()
+
+	toolReg.RegisterModule(&sway.Module{})
+	toolReg.RegisterModule(&sway.ContractToolModule{
+		ToolRegistry:     toolReg,
+		ResourceRegistry: resReg,
+		PromptRegistry:   promptReg,
+		Version:          version,
+	})
+	resReg.RegisterModule(&sway.ContractResourceModule{
+		ToolRegistry:   toolReg,
+		PromptRegistry: promptReg,
+		Version:        version,
+	})
+	promptReg.RegisterModule(&sway.ContractPromptModule{})
+
+	s := registry.NewMCPServer(
+		"sway-mcp",
+		version,
+		server.WithToolCapabilities(true),
+		server.WithResourceCapabilities(false, true),
+		server.WithPromptCapabilities(true),
+	)
+	toolReg.RegisterWithServer(s)
+	resReg.RegisterWithServer(s)
+	promptReg.RegisterWithServer(s)
 
 	if err := registry.ServeStdio(s); err != nil {
 		log.Fatal(err)

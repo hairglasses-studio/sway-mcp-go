@@ -1,10 +1,8 @@
 {
   "mcpServers": {
     "sway-mcp-go": {
-      "args": [
-        "./scripts/run-sway-mcp.sh"
-      ],
       "command": "bash",
+      "args": ["./scripts/run-sway-mcp.sh"],
       "cwd": "."
     }
   }
