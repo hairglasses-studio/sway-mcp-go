@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"name\": \"sway-mcp-go Roadmap\",\n  \"description\": \"Auto-exported from sway-mcp-go Roadmap (4 tasks)\",\n  \"completion\": \"0/4\",\n  \"tasks\": [\n    {\n      \"id\": \"Whiteclaw-Derived Overhaul (2026-04-08)/Recommended Work/0\",\n      \"description\": \"[Boundary docs] Document the Hyprland-vs-Sway boundary and when this repo is still the correct control surface.\",\n      \"done\": false\n    },\n    {\n      \"id\": \"Whiteclaw-Derived Overhaul (2026-04-08)/Recommended Work/1\",\n      \"description\": \"[Smoke tests] Add smoke tests for no-WAYLAND discovery mode and for live-session helper requirements when Sway is present.\",\n      \"done\": false\n    },\n    {\n      \"id\": \"Whiteclaw-Derived Overhaul (2026-04-08)/Recommended Work/2\",\n      \"description\": \"[Contract snapshots] Snapshot the tool/resource/prompt schemas before further maintenance backports change them implicitly.\",\n      \"done\": false\n    },\n    {\n      \"id\": \"Whiteclaw-Derived Overhaul (2026-04-08)/Recommended Work/3\",\n      \"description\": \"[Compatibility] Record any session/runtime assumptions that future maintainers need to reproduce local behavior safely.\",\n      \"done\": false\n    }\n  ]\n}"
+    }
+  ]
+}
