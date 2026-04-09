@@ -22,9 +22,8 @@ is retained as a separate Sway-focused surface.
 ## Build & Test
 
 ```bash
-go build ./cmd/sway-mcp
-go test ./... -count=1
-go vet ./...
+make build
+make check
 ```
 
 ## Local MCP Launch
@@ -35,6 +34,9 @@ bash ./scripts/run-sway-mcp.sh
 
 Repo-local MCP configuration lives in `.mcp.json`, with curated Codex profiles in
 `.codex/mcp-profile-policy.json`.
+
+For a local checkout, the repo ships the launcher plus `.mcp.json`, so MCP
+clients can attach directly without reconstructing the command manually.
 
 ## Runtime Requirements
 

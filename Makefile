@@ -1,0 +1,25 @@
+.PHONY: build build-a2a test vet lint check coverage
+
+build:
+	GOWORK=off go build -o sway-mcp ./cmd/sway-mcp
+
+build-a2a:
+	GOWORK=off go build -o sway-a2a ./cmd/sway-a2a
+
+test:
+	GOWORK=off go test ./... -count=1
+
+vet:
+	GOWORK=off go vet ./...
+
+lint:
+	@command -v golangci-lint >/dev/null 2>&1 && golangci-lint run ./... || \
+	(command -v staticcheck >/dev/null 2>&1 && staticcheck ./... || echo "no linter installed, skipping")
+
+check: build vet test
+
+coverage:
+	GOWORK=off go test ./... -count=1 -coverprofile=coverage.out
+	go tool cover -func=coverage.out
+
+-include $(HOME)/hairglasses-studio/dotfiles/make/pipeline.mk
