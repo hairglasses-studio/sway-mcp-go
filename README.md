@@ -1,13 +1,17 @@
 # sway-mcp-go
 
-`sway-mcp-go` is a standalone Go MCP server for Sway and Wayland desktop
-automation.
+Archived compatibility surface for the older Sway-specific desktop automation
+server.
 
-The main `hairglasses-studio` desktop stack now targets Hyprland, but this repo
-is retained as a separate Sway-focused surface.
+The active workstation control plane now lives in
+`hairglasses-studio/dotfiles` at `mcp/dotfiles-mcp/`, where Hyprland and the
+current desktop automation surface are maintained. Keep this repo limited to
+redirect notes and compatibility context until callers are fully migrated.
 
 ## Current Surface
 
+- Status: archive-ready redirect
+- Active merge target: `dotfiles/mcp/dotfiles-mcp`
 - screenshots: `sway_screenshot`, `sway_screenshot_region`
 - input: `sway_click`, `sway_type_text`, `sway_key`, `sway_scroll`
 - window management: `sway_list_windows`, `sway_focus_window`,

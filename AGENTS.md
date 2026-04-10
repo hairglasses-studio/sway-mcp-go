@@ -6,8 +6,9 @@ Use this file as the canonical multi-provider instruction surface for this repo.
 
 ## Purpose
 
-- Public Sway-focused MCP server retained as its own repo even though the main
-  workstation control plane has moved to Hyprland.
+- Archived compatibility surface for the older Sway-focused MCP server.
+- Active desktop automation work now lives in `dotfiles/mcp/dotfiles-mcp`.
+- Treat this repo as an archive-ready redirect, not an active feature surface.
 
 ## Build & Test
 
@@ -32,6 +33,8 @@ Use this file as the canonical multi-provider instruction surface for this repo.
 
 - Preserve the public `sway_` tool names unless downstream callers are updated
   in the same change.
+- Do not add new workstation automation here; land new desktop work in
+  `dotfiles/mcp/dotfiles-mcp`.
 - Keep runtime assumptions documented in `README.md` instead of burying them in
   code comments.
 - Keep [AGENTS.md](AGENTS.md), [CLAUDE.md](CLAUDE.md), [GEMINI.md](GEMINI.md),
